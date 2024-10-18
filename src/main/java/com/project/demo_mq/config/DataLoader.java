@@ -27,7 +27,7 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         int numberOfRegistrations = 100; // Giả lập 100 sinh viên đăng ký
-        ExecutorService executor = Executors.newFixedThreadPool(10); // Sử dụng 10 thread
+        ExecutorService executor = Executors.newFixedThreadPool(30); // Sử dụng 10 thread
 
         for (int i = 1; i <= numberOfRegistrations; i++) {
             final int index = i;

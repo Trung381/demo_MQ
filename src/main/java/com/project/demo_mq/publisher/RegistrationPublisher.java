@@ -22,7 +22,7 @@ public class RegistrationPublisher {
 //        System.out.println("Đã gửi đăng ký: " + registration);
 //    }
 public void publishRegistration(Registration registration) {
-    System.out.println("Publishing registration: " + registration);
+//    System.out.println("Publishing registration: " + registration);
     rabbitTemplate.convertAndSend(
             RabbitMQConfig.EXCHANGE_NAME,
             "course.registration.student",
