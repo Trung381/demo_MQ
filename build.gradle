@@ -29,6 +29,12 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Spring Boot Starter AMQP (RabbitMQ)
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+    // Spring Boot DevTools (Optional)
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
 tasks.named('test') {
