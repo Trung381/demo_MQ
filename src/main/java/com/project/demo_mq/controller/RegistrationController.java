@@ -39,7 +39,10 @@ public class RegistrationController {
         }
 
         // Gửi từng đăng ký thông qua publisher
-        registrations.forEach(publisher::publishRegistration);
+        registrations.forEach(registration -> {
+            publisher.publishRegistration(registration);
+            System.out.println("Đã gửi đăng ký: " + registration);
+        });
 
         return ResponseEntity.ok("Đã gửi " + numberOfRegistrations + " yêu cầu đăng ký");
     }

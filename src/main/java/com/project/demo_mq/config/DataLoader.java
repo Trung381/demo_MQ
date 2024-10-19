@@ -7,7 +7,6 @@ import com.project.demo_mq.publisher.RegistrationPublisher;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -26,8 +25,8 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        int numberOfRegistrations = 100; // Giả lập 100 sinh viên đăng ký
-        ExecutorService executor = Executors.newFixedThreadPool(30); // Sử dụng 10 thread
+        int numberOfRegistrations = 10000; // Tăng lên 1000 đăng ký để giả lập tải lớn
+        ExecutorService executor = Executors.newFixedThreadPool(50); // Tăng số luồng lên 50
 
         for (int i = 1; i <= numberOfRegistrations; i++) {
             final int index = i;
@@ -43,7 +42,7 @@ public class DataLoader implements CommandLineRunner {
 
         executor.shutdown();
         try {
-            if (!executor.awaitTermination(60, TimeUnit.SECONDS)) {
+            if (!executor.awaitTermination(120, TimeUnit.SECONDS)) { // Tăng thời gian chờ lên 120 giây
                 executor.shutdownNow();
             }
         } catch (InterruptedException e) {

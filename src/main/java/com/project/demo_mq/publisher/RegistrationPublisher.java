@@ -13,21 +13,12 @@ public class RegistrationPublisher {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-//    public void publishRegistration(Registration registration) {
-//        rabbitTemplate.convertAndSend(
-//                RabbitMQConfig.EXCHANGE_NAME,
-//                "course.registration.student",
-//                registration
-//        );
-//        System.out.println("Đã gửi đăng ký: " + registration);
-//    }
-public void publishRegistration(Registration registration) {
-//    System.out.println("Publishing registration: " + registration);
-    rabbitTemplate.convertAndSend(
-            RabbitMQConfig.EXCHANGE_NAME,
-            "course.registration.student",
-            registration
-    );
-}
-
+    public void publishRegistration(Registration registration) {
+        rabbitTemplate.convertAndSend(
+                RabbitMQConfig.EXCHANGE_NAME,
+                "course.registration.student",
+                registration
+        );
+        System.out.println("Đã gửi đăng ký: " + registration);
+    }
 }
