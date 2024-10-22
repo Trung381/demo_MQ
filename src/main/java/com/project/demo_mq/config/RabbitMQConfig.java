@@ -86,5 +86,7 @@ public class RabbitMQConfig {
         factory.setRetryTemplate(retryTemplate);
 
         return factory;
+        // true
     }
 }
+
